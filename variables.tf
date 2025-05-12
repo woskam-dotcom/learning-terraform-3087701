@@ -3,7 +3,7 @@ variable "instance_type" {
   default     = "t3.nano"
 }
 
-variable "ami_filter"
+variable "ami_filter"{
   description = "Name filter and owner for AMI"
 
   type = object ({
@@ -17,7 +17,7 @@ variable "ami_filter"
   }
 }
 
-variable = "environment"
+variable = "environment" {
   description = "Development Environment""
 
   type = object ({
