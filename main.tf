@@ -62,15 +62,20 @@ module "alb" {
     }
   }
 
-  target_groups = {
-    ex-instance = {
+  target_groups = [
+    {
       name_prefix      = "blog-"
       protocol         = "HTTP"
       port             = 80
       target_type      = "instance"
-      target_id        = "aws_instance.blog.id"
+      targets = {
+        my-target = {
+          target_id        = "aws_instance.blog.id"
+          port = 80
+        }
+      }
     }
-  }
+  ]
 
   tags = {
     Environment = "Dev"
